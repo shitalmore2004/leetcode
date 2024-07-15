@@ -1,0 +1,43 @@
+class Solution {
+
+    boolean isValid(String s) {
+        int n=s.length();
+        if(n%2!=0){
+            return false;
+        }
+        Stack<Character> Stack=new Stack<>();
+        for(int i=0;i<n;i++){
+             char ch =s.charAt(i);
+             if(ch=='['|| ch=='{'|| ch=='('){
+                Stack.push(ch);
+             }
+             else{
+                if(Stack.isEmpty()){
+                    return false;
+                }
+                char top=Stack.peek();
+                 if(ch==')' && top!='(')
+                {
+                    return false;
+                }
+                else  if(ch=='}' && top!='{')
+                {
+                   
+                    return false;
+                }
+                else if(ch==']' && top!='[')
+                {
+                    if(ch==']' && top!='[')
+                    return false;
+                }
+                else{
+                    Stack.pop();
+                }
+
+             }
+
+        }
+       return (Stack.size()==0); 
+    }
+    
+};
