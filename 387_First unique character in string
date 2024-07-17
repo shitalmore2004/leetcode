@@ -1,0 +1,21 @@
+class Solution {
+    public int firstUniqChar(String s) {
+        int[] charCount = new int[256]; // Assuming ASCII characters
+
+        // Count occurrences of each character
+        for (char c : s.toCharArray()) {
+            charCount[c]++;
+        }
+
+        // Find the first non-repeating character
+        for (int i = 0; i < s.length(); i++) {
+            if (charCount[s.charAt(i)] == 1) {
+                return i; // Return the index of the first non-repeating character
+            }
+        }
+
+        return -1; 
+        
+
+    }
+}
