@@ -1,0 +1,18 @@
+class Solution {
+    public char findTheDifference(String s, String t) {
+        int total = 0;
+        
+        // Iterate over string t to sum up ASCII values of characters
+        for (int i = 0; i < t.length(); i++) {
+            total += t.charAt(i);
+        }
+        
+        // Iterate over string s to subtract ASCII values of characters
+        for (int i = 0; i < s.length(); i++) {
+            total -= s.charAt(i);
+        }
+        
+        // The remaining value in 'total' will be the ASCII value of the added character in t
+        return (char) total;
+    }
+}
