@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Solution {
+    public String kthDistinct(String[] arr, int k) {
+        // Use a LinkedHashMap to maintain insertion order
+        Map<String, Integer> map = new LinkedHashMap<>();
+        
+        // Count occurrences of each string
+        for (String a : arr) {
+            map.put(a, map.getOrDefault(a, 0) + 1);
+        }
+        
+        // Iterate through the map to find the k-th distinct string
+        int count = 0;
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == 1) {
+                count++;
+                if (count == k) {
+                    return entry.getKey();
+                }
+            }
+        }
+        
+        // Return an empty string if there are not enough distinct strings
+        return "";
+    }
+}
