@@ -1,0 +1,15 @@
+class Solution {
+    public int minSteps(int n) {
+        int ans =0;
+        for(int factors=2;factors*factors<=n;factors++){
+            while(n%factors==0){
+                ans+=factors;
+                n/=factors;
+            }
+        }
+        if(n>1){
+            ans+=n;
+        }
+        return ans;
+    }
+}
