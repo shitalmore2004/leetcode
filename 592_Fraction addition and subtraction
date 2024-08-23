@@ -1,0 +1,59 @@
+class Solution {
+    public String fractionAddition(String expression) {
+        int num = 0;  // Overall numerator
+        int den = 1;  // Overall denominator
+        int n = expression.length();
+        int i = 0;
+        
+        while (i < n) {
+            int curnum = 0;
+            int curden = 0;
+            boolean isneg = false;
+            
+            // Read sign
+            char ch = expression.charAt(i);
+            if (ch == '-') {
+                isneg = true;
+                i++;
+            } else if (ch == '+') {
+                i++;
+            }
+            
+            // Read numerator
+            int start = i;
+            while (i < n && Character.isDigit(expression.charAt(i))) {
+                i++;
+            }
+            curnum = Integer.parseInt(expression.substring(start, i));
+            if (isneg) {
+                curnum *= -1;
+            }
+            
+            // Skip '/'
+            i++;
+            
+            // Read denominator
+            start = i;
+            while (i < n && Character.isDigit(expression.charAt(i))) {
+                i++;
+            }
+            curden = Integer.parseInt(expression.substring(start, i));
+            
+            // Update the overall numerator and denominator
+            num = num * curden + curnum * den;
+            den *= curden;
+        }
+        
+        // Simplify the fraction
+        int gcd = Math.abs(getGCD(num, den));
+        num /= gcd;
+        den /= gcd;
+        
+        return num + "/" + den;
+    }
+
+    private int getGCD(int a, int b) {
+        if (b == 0) return a;
+        return getGCD(b, a % b);
+    }
+}
