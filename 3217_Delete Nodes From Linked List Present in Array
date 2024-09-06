@@ -1,0 +1,21 @@
+class Solution {
+    public ListNode modifiedList(int[] nums, ListNode head) {
+        Set<Integer>set=new HashSet<>();
+        for(int i=0;i<nums.length;i++){
+            set.add(nums[i]);
+        }
+        ListNode curr=head;
+        ListNode dummy=new ListNode(0);
+        ListNode n = dummy;
+        
+        while(curr !=null){
+            if(!set.contains(curr.val)){
+                n.next=curr;
+                n=n.next;
+            }
+            curr =curr.next;
+        }
+        n.next=null;
+        return dummy.next;
+    }
+}
