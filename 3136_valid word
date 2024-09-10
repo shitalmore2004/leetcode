@@ -1,0 +1,31 @@
+public class Solution {
+    public boolean isValid(String word) {
+        // Cturn false;
+        }
+
+        boolean hasVowel = false;
+        boolean hasConsonant = false;
+
+        // Check each character
+        for (char ch : word.toCharArray()) {
+            if (Character.isLetter(ch) || Character.isDigit(ch)) {
+                if (isVowel(ch)) {
+                    hasVoheck if the length is at least 3 characters
+        if (word.length() < 3) {
+            rewel = true;
+                } else if (Character.isLetter(ch)) {
+                    hasConsonant = true;
+                }
+            } else {
+                return false; // Invalid character
+            }
+        }
+
+        return hasVowel && hasConsonant;
+    }
+
+    private boolean isVowel(char ch) {
+        ch = Character.toLowerCase(ch);
+        return "aeiou".indexOf(ch) != -1;
+    }
+}
