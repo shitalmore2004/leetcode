@@ -1,0 +1,28 @@
+class Solution {
+  
+public static int longestCommonPrefix(int[] arr1, int[] arr2) {
+        int maxLength = 0;
+
+        
+        for (int x : arr1) {
+            for (int y : arr2) {
+                
+                String strX = String.valueOf(x);
+                String strY = String.valueOf(y);
+                int length = 0;
+
+                
+                while (length < strX.length() && length < strY.length() 
+                        && strX.charAt(length) == strY.charAt(length)) {
+                    length++;
+                }
+
+                
+                maxLength = Math.max(maxLength, length);
+            }
+        }
+
+        return maxLength;
+    }
+}
+//time limit exceeded
