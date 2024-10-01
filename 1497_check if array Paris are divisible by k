@@ -1,1 +1,37 @@
+class Solution {
+    public boolean canArrange(int[] arr, int k) {
+        // Create an array to store the frequency of each remainder when elements are divided by k
+        int[] freq = new int[k];
+        
+        // Loop through each element in the input array
+        for (int i : arr) {
+            // Calculate the remainder of the current element when divided by k
+            int rem = i % k;
+
+            // If the remainder is negative, adjust it to be non-negative
+            if (rem < 0) {
+                rem += k;
+            }
+            
+            // Increment the frequency count for this remainder
+            freq[rem]++;
+        }
+
+        // Check if the number of elements with remainder 0 is even
+        if (freq[0] % 2 != 0) {
+            return false; // If odd, pairing is not possible
+        }
+
+        // Check pairs of remainders from 1 to k/2
+        for (int i = 1; i <= k / 2; i++) {
+            // For each remainder i, check if its complement (k - i) has the same frequency
+            if (freq[i] != freq[k - i]) {
+                return false; // If frequencies do not match, pairing is not possible
+            }
+        }
+
+        // If all checks pass, it is possible to arrange the array into valid pairs
+        return true;
+    }
+}
 
