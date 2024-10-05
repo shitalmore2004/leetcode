@@ -1,0 +1,29 @@
+class Solution {
+    public int compress(char[] chars) {
+        StringBuilder newStr = new StringBuilder(); // Initialize StringBuilder
+        for (int i = 0; i < chars.length;) {
+            char letter = chars[i]; // Get the current character
+            int count = 0; // Initialize a counter for the occurrences
+            
+            // Count occurrences of the current character
+            while (i < chars.length && chars[i] == letter) {
+                ++count; // Increment the count for each occurrence
+                ++i; // Move to the next character
+            }
+            
+            newStr.append(letter); // Append the character to newStr
+            
+            if (count > 1) {
+                newStr.append(count); // Append the count if it's greater than 1
+            }
+        }
+
+        // Update the original array with the compressed version
+        for (int j = 0; j < newStr.length(); j++) {
+            chars[j] = newStr.charAt(j); // Copy the compressed string back to chars
+        }
+
+        // Return the length of the compressed string
+        return newStr.length(); // Return the length of the new string
+    }
+}
