@@ -1,26 +1,23 @@
-class Solution {
-   
-    public int maxKelements(int[] nums, int k) {
+ public long maxKelements(int[] nums, int k) {
         // Create a max-heap to store the elements
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
+        PriorityQueue<Long> maxHeap = new PriorityQueue<>((a, b) -> Long.compare(b, a));
         
         // Add all elements from nums to the max-heap
         for (int num : nums) {
-            maxHeap.add(num);
+            maxHeap.add((long) num);
         }
         
-        int totalScore = 0;
+        long totalScore = 0;
         
         // Perform k operations
         for (int i = 0; i < k; i++) {
             // Get the largest element from the heap
-            int currentMax = maxHeap.poll();
+            long currentMax = maxHeap.poll();
             // Increase the score by the current max
             totalScore += currentMax;
             // Update the element and add it back to the heap
-            maxHeap.add((int) Math.ceil(currentMax / 3.0));
+            maxHeap.add((long) Math.ceil(currentMax / 3.0));
         }
         
-        return totalScore;
+        return totalScore; // Return as long
     }
-}
