@@ -1,1 +1,31 @@
+class Solution {
+    public int maximumSwap(int num) {
+        char[] digits = Integer.toString(num).toCharArray();
+        int[] last = new int[10];
+
+        // Store the last index of each digit (0-9)
+        for (int i = 0; i < digits.length; i++) {
+            last[digits[i] - '0'] = i;
+        }
+
+        // Traverse the digits
+        for (int i = 0; i < digits.length; i++) {
+            // Check for a higher digit to swap with
+            for (int d = 9; d > digits[i] - '0'; d--) {
+                if (last[d] > i) {
+                    // Swap the digits
+                    char temp = digits[i];
+                    digits[i] = digits[last[d]];
+                    digits[last[d]] = temp;
+
+                    // Convert back to integer and return
+                    return Integer.parseInt(new String(digits));
+                }
+            }
+        }
+
+        // If no swap was made, return the original number
+        return num;
+    }
+}
 
