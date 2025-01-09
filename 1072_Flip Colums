@@ -15,3 +15,4 @@ class Solution {
         return Collections.max(patFreq.values());
     }
 }
+
