@@ -1,0 +1,23 @@
+class Solution {
+    public int minOperations(String s) {
+        int miss0 = 0, miss1 = 0;
+        
+        for (int i = 0; i < s.length(); i++) {
+            if (i % 2 == 0) { // Even index
+                if (s.charAt(i) != '0') {
+                    miss0++; // Should be '0' in "010101..."
+                } else {
+                    miss1++; // Should be '1' in "101010..."
+                }
+            } else { // Odd index
+                if (s.charAt(i) != '1') {
+                    miss0++; // Should be '1' in "010101..."
+                } else {
+                    miss1++; // Should be '0' in "101010..."
+                }
+            }
+        }
+        
+        return Math.min(miss0, miss1);
+    }
+}
