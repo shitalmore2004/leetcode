@@ -8,9 +8,7 @@ class Solution {
             aiplusi=Math.max(aiplusi,values[j]+j);
         }
    return ans;
-
-
-    }
+   }
 
 }
 
