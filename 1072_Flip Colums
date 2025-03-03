@@ -12,7 +12,7 @@ class Solution {
             patFreq.merge(pattern.toString(), 1, Integer::sum);
         }
         
-        return Collections.max(patFreq.values());
+  return Collections.max(patFreq.values());
     }
 }
 
