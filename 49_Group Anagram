@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class GroupAnagram {
+    public static void main(String[] args) {
+        String txt = "cbaebabacd";
+        String pat = "abc";
+
+        int result = Anagram(txt, pat);  // Correct function call
+        System.out.println("Number of anagram occurrences: " + result);
+    }
+
+    public static int Anagram(String txt, String pat) {  // Fix: Correct parameter order
+        int count = 0;
+        int[] patCount = new int[26];
+        int[] txtCount = new int[26];
+
+        // Populate frequency array for pattern
+        for (int i = 0; i < pat.length(); i++) {
+            patCount[pat.charAt(i) - 'a']++;
+        }
+
+        int i = 0, j = 0;
+
+        while (j < txt.length()) {
+            txtCount[txt.charAt(j) - 'a']++;
+
+            if (j - i + 1 == pat.length()) {  // When window size matches pattern length
+                if (Arrays.equals(patCount, txtCount)) {
+                    count++;
+                }
+                txtCount[txt.charAt(i) - 'a']--;  // Remove leftmost character
+                i++;  // Slide the window forward
+            }
+            j++;  // Expand the window
+        }
+        return count;
+    }
+}
