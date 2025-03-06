@@ -10,5 +10,6 @@ class Solution {
             if(x!=y)  pq.offer(x-y);
         }
         return pq.isEmpty()?0:pq.poll();
+
     }
 }
