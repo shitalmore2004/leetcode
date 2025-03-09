@@ -8,6 +8,7 @@ class Solution {
                 for (int bit : row) pattern.append(bit);
             } else {
                 for (int bit : row) pattern.append(bit ^ 1);
+
             }
             patFreq.merge(pattern.toString(), 1, Integer::sum);
         }
