@@ -9,5 +9,6 @@ class Solution {
             capacity-=m[i];
         }
         return capacity >=0;
+
     }
 }
