@@ -17,6 +17,7 @@ public class PascaleTriangle {
                 }
                 System.out.println(ans[i][j]+" ");
             }
+
             System.out.println();
         }
 
