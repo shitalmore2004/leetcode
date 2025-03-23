@@ -11,6 +11,7 @@ class Solution {
       while (count[a]-- > 0)
         ans[i++] = a;
 
+
     for (int num = 0; num < 1001; ++num)
       while (count[num]-- > 0)
         ans[i++] = num;
