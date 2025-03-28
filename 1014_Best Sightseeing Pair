@@ -1,4 +1,3 @@
-
 class Solution {
     public int maxScoreSightseeingPair(int[] values) {
         int n=values.length;
