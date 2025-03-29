@@ -8,7 +8,7 @@ class Solution {
             if(sum!=0)
             {
                 list.add(false);
-            }
+            }    
             else
             {
                 list.add(true);
