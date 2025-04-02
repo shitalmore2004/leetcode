@@ -10,8 +10,6 @@ class Solution {
             if (values[i] + i > m) 
                 m = values[i] + i;
         }
-
-
         return ans;
     }
 }
