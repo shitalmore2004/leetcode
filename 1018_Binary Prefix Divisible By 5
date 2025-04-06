@@ -12,6 +12,7 @@ class Solution {
             else
             {
                 list.add(true);
+
             }
         }
         return list;
