@@ -7,6 +7,7 @@ class Solution {
             ans=Math.max(ans,aiplusi+values[j]-j);    
             aiplusi=Math.max(aiplusi,values[j]+  j);
 
+
         }
 
    return ans; 
